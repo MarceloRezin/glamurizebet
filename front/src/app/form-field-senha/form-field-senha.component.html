@@ -1,0 +1,20 @@
+<mat-form-field>
+    <mat-label>Informe sua senha</mat-label>
+    <input matInput [autocomplete]="autocomplete" [type]="hideSenha() ? 'password' : 'text'" [formControl]="formControl"/>
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="showHideSenha($event)"
+      [attr.aria-label]="'Esconder senha'"
+      [attr.aria-pressed]="hideSenha()"
+      class="background-padrao"
+      type="button"
+    >
+      <mat-icon class="background-padrao">{{hideSenha() ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    @if (formControl.hasError('required')) {
+        <mat-error>Você deve informar a senha</mat-error>
+    } @else if (formControl.hasError('minlength')) {
+        <mat-error>A senha é muito curta</mat-error>
+    }
+</mat-form-field>
