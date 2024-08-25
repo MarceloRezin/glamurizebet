@@ -1,21 +1,10 @@
 <form [formGroup]="login" style="display: flex; flex-direction: column; width: 100%;" (ngSubmit)="logar()">
     <h3 style="text-align: center;">Faça o Login</h3>
-    <mat-form-field>
-        <mat-label>Informe seu e-mail</mat-label>
-        <input
-        matInput
-        placeholder="pru@pombo.com"
-        [formControl]="login.controls.email"
-        />
-        @if (login.controls.email.hasError('required')) {
-            <mat-error>Você deve informar o e-mail</mat-error>
-        } @else if (login.controls.email.hasError('email')) {
-            <mat-error>E-mail inválido</mat-error>
-        }
-    </mat-form-field>
+    <app-form-field-email [formControl]="login.controls.email" ngDefaultControl></app-form-field-email>
+
     <mat-form-field>
         <mat-label>Informe sua senha</mat-label>
-        <input matInput [type]="hideSenha() ? 'password' : 'text'" [formControl]="login.controls.senha"/>
+        <input matInput autocomplete="current-password" [type]="hideSenha() ? 'password' : 'text'" [formControl]="login.controls.senha"/>
         <button
           mat-icon-button
           matSuffix
@@ -34,7 +23,7 @@
         }
       </mat-form-field>
       <section style="display: flex; flex-direction: row; justify-content: space-between;">
-          <button mat-stroked-button>Criar Conta</button>
-          <button mat-flat-button [disabled]="!login.valid" type="submit">Logar</button>
+        <a mat-stroked-button routerLink="/externo/cadastro">Criar Conta</a>
+        <button mat-flat-button [disabled]="!login.valid" type="submit">Logar</button>
       </section>
 </form>

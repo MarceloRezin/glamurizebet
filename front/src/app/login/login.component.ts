@@ -4,12 +4,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
+import { FormFieldEmailComponent } from "../form-field-email/form-field-email.component";
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatIconModule, MatButtonModule ],
+  imports: [RouterLink, MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatIconModule, MatButtonModule, FormFieldEmailComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
