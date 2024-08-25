@@ -1,0 +1,10 @@
+<form [formGroup]="cadastro" style="display: flex; flex-direction: column; width: 100%;" (ngSubmit)="cadastrar()">
+    <h3 style="text-align: center;">Crie sua Conta</h3>
+    <app-form-field-nome [formControl]="cadastro.controls.nome" ngDefaultControl></app-form-field-nome>
+    <app-form-field-email [formControl]="cadastro.controls.email" ngDefaultControl></app-form-field-email>
+    <app-form-field-senha [formControl]="cadastro.controls.senha" autocomplete="new-password" ngDefaultControl></app-form-field-senha>
+    <section style="display: flex; flex-direction: row; justify-content: space-between;">
+        <a mat-stroked-button routerLink="/externo/login">Fazer Login</a>
+        <button mat-flat-button [disabled]="!cadastro.valid" type="submit">Criar Conta</button>
+    </section>
+</form>

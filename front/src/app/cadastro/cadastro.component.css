@@ -1,0 +1,8 @@
+:host {
+    padding: 3%;
+    display: flex;
+}
+
+button {
+    width: 45%;
+}
