@@ -1,8 +1,11 @@
 import { Routes } from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component'
 import {HomeComponent} from './home/home.component'
+
 import {ExternoComponent} from './externo/externo.component'
 import {LoginComponent} from './login/login.component'
+import {CadastroComponent} from './cadastro/cadastro.component'
+
 import {TesteComponent} from './teste/teste.component'
 
 export const routes: Routes = [
@@ -12,6 +15,7 @@ export const routes: Routes = [
         component: ExternoComponent,
         children: [
             { path: 'login', component: LoginComponent},
+            { path: 'cadastro', component: CadastroComponent},
         ]
     },
     { path: 'teste', component: TesteComponent},
