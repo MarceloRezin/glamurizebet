@@ -1,0 +1,14 @@
+<mat-form-field>
+    <mat-label>Informe seu nome</mat-label>
+    <input
+    matInput
+    autocomplete="name"
+    placeholder="Pombo Pruu"
+    [formControl]="formControl"
+    />
+    @if (formControl.hasError('required')) {
+        <mat-error>Você deve informar o seu nome</mat-error>
+    } @else if (formControl.hasError('minlength')) {
+        <mat-error>Nome muito curto</mat-error>
+    }
+</mat-form-field>
