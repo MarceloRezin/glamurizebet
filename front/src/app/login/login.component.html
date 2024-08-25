@@ -1,29 +1,9 @@
 <form [formGroup]="login" style="display: flex; flex-direction: column; width: 100%;" (ngSubmit)="logar()">
     <h3 style="text-align: center;">Faça o Login</h3>
     <app-form-field-email [formControl]="login.controls.email" ngDefaultControl></app-form-field-email>
-
-    <mat-form-field>
-        <mat-label>Informe sua senha</mat-label>
-        <input matInput autocomplete="current-password" [type]="hideSenha() ? 'password' : 'text'" [formControl]="login.controls.senha"/>
-        <button
-          mat-icon-button
-          matSuffix
-          (click)="showHideSenha($event)"
-          [attr.aria-label]="'Esconder senha'"
-          [attr.aria-pressed]="hideSenha()"
-          class="background-padrao"
-          type="button"
-        >
-          <mat-icon class="background-padrao">{{hideSenha() ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-        @if (login.controls.senha.hasError('required')) {
-            <mat-error>Você deve informar a senha</mat-error>
-        } @else if (login.controls.senha.hasError('minlength')) {
-            <mat-error>A senha é muito curta</mat-error>
-        }
-      </mat-form-field>
-      <section style="display: flex; flex-direction: row; justify-content: space-between;">
+    <app-form-field-senha [formControl]="login.controls.senha" autocomplete="current-password" ngDefaultControl></app-form-field-senha>
+    <section style="display: flex; flex-direction: row; justify-content: space-between;">
         <a mat-stroked-button routerLink="/externo/cadastro">Criar Conta</a>
         <button mat-flat-button [disabled]="!login.valid" type="submit">Logar</button>
-      </section>
+    </section>
 </form>

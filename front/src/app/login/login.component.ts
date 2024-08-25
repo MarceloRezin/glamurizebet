@@ -1,17 +1,15 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { FormFieldEmailComponent } from "../form-field-email/form-field-email.component";
+import { FormFieldSenhaComponent } from "../form-field-senha/form-field-senha.component";
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatIconModule, MatButtonModule, FormFieldEmailComponent],
+  imports: [RouterLink, FormsModule, ReactiveFormsModule, MatButtonModule, FormFieldEmailComponent, FormFieldSenhaComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -20,12 +18,6 @@ export class LoginComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     senha: new FormControl('', [Validators.required, Validators.minLength(5)]),
   });
-
-  hideSenha = signal(true);
-  showHideSenha(event: MouseEvent) {
-    this.hideSenha.set(!this.hideSenha());
-    event.stopPropagation();
-  }
 
   logar() {
     if(this.login.invalid) {
