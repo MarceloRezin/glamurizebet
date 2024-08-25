@@ -1,0 +1,12 @@
+:host {
+    padding: 3%;
+    display: flex;
+}
+
+button {
+    width: 45%;
+}
+
+mat-form-field {
+    padding: 2%;
+}
