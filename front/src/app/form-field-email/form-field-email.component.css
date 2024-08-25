@@ -1,0 +1,8 @@
+:host {
+    display: flex;
+}
+
+mat-form-field {
+    padding: 2%;
+    flex: auto;
+}

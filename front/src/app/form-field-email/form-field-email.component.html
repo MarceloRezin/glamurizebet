@@ -1,0 +1,14 @@
+<mat-form-field>
+    <mat-label>Informe seu e-mail</mat-label>
+    <input
+    matInput
+    autocomplete="email"
+    placeholder="pru@pombo.com"
+    [formControl]="formControl"
+    />
+    @if (formControl.hasError('required')) {
+        <mat-error>Você deve informar o e-mail</mat-error>
+    } @else if (formControl.hasError('email')) {
+        <mat-error>E-mail inválido</mat-error>
+    }
+</mat-form-field>
