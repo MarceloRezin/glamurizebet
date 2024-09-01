@@ -17,4 +17,5 @@ Gin: 1.10.0
 
 
 ## Desenvolvimento
-Para rodar o front, execute `make run-front`
+Para rodar o front, execute `make run-front`  
+Para rodar o back, execute `make run-back`
