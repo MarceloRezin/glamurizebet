@@ -1,6 +1,8 @@
 package endpoint_util
 
 import (
+	appcontext "glamurizebet/internal/application"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,7 +21,7 @@ const (
 )
 
 type Endpoint interface {
-	AddRoutes(router *gin.RouterGroup)
+	AddRoutes(router *gin.RouterGroup, appContext *appcontext.AppContext)
 	GetVersion() Versao
 	GetType() Type
 }

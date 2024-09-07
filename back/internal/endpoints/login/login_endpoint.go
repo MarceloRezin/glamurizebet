@@ -1,6 +1,7 @@
 package login
 
 import (
+	appcontext "glamurizebet/internal/application"
 	endpoint_util "glamurizebet/internal/endpoints/util"
 
 	"github.com/gin-gonic/gin"
@@ -8,9 +9,11 @@ import (
 
 type LoginEndpoint struct{}
 
-func (LoginEndpoint) AddRoutes(router *gin.RouterGroup) {
-	router.GET("/login", logar)
-	router.POST("/logar", logar)
+func (LoginEndpoint) AddRoutes(router *gin.RouterGroup, appContext *appcontext.AppContext) {
+	lb := login_business{appContext: appContext}
+
+	router.GET("/login", lb.logar)
+	router.POST("/logar", lb.logar)
 }
 
 func (LoginEndpoint) GetVersion() endpoint_util.Versao {

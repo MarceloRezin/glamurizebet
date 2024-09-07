@@ -1,6 +1,7 @@
 package endpoints
 
 import (
+	appcontext "glamurizebet/internal/application"
 	"glamurizebet/internal/endpoints/login"
 	endpoint_util "glamurizebet/internal/endpoints/util"
 
@@ -23,10 +24,10 @@ func getBy(version endpoint_util.Versao, tipe endpoint_util.Type) []endpoint_uti
 	return selecionados
 }
 
-func AddRoutesBy(versao endpoint_util.Versao, tipe endpoint_util.Type, router *gin.RouterGroup) {
+func AddRoutesBy(versao endpoint_util.Versao, tipe endpoint_util.Type, router *gin.RouterGroup, appContext *appcontext.AppContext) {
 	edps := getBy(versao, tipe)
 
 	for _, e := range edps {
-		e.AddRoutes(router)
+		e.AddRoutes(router, appContext)
 	}
 }
