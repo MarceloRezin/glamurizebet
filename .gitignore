@@ -1,3 +1,5 @@
 .vscode
 front/node_modules
 front/.angular
+
+back/.env
