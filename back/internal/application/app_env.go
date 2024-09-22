@@ -14,7 +14,7 @@ type Env struct {
 }
 
 func LoadEnv() (Env, error) {
-	envMap, err := goenv.Read(eNV_FILE)
+	envMap, err := goenv.Read(envFile)
 	if err != nil {
 		return Env{}, err
 	}
@@ -25,9 +25,9 @@ func LoadEnv() (Env, error) {
 	}
 
 	return Env{
-		DbUser: envMap[dB_USER],
-		DbPass: envMap[dB_PASS],
-		DbName: envMap[dB_NAME],
+		DbUser: envMap[dbUser],
+		DbPass: envMap[dbPass],
+		DbName: envMap[dbName],
 		IsProd: et == prod,
 	}, nil
 }

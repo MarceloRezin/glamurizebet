@@ -1,10 +1,10 @@
 package application
 
-const eNV_FILE = ".env"
+const envFile = ".env"
 
-const dB_USER = "dbUser"
-const dB_PASS = "dbPass"
-const dB_NAME = "dbName"
+const dbUser = "dbUser"
+const dbPass = "dbPass"
+const dbName = "dbName"
 
 const envType = "envType" //PROD or DEV
 const prod = "PROD"
